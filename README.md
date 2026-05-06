@@ -4,7 +4,7 @@
 
 ### Your AI-Powered Interview Coach
 
-Interview Analysis Coach turns every interview — practice or real — into a structured coaching report. It listens, evaluates across multiple lenses, and tells you exactly what worked, what didn't, and what to do differently next time. [Website](https://proleap.ai)
+Interview Analysis Coach turns every interview — practice or real — into a structured coaching report. It listens, evaluates across multiple lenses, and tells you exactly what worked, what didn't, and what to do differently next time. [Website](https://proleap.ai/interview)
 
 
 
