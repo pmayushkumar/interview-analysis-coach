@@ -38,6 +38,23 @@ No more replaying interviews in your head wondering what went wrong. No more vag
 - **Pre-Interview Prep Mode** — Generates a personalized prep brief before the interview based on the role, company, and your background.
 - **Privacy-First** — Transcripts are deleted after 7 days. Audio is processed and discarded. Your data isn't used to train any model.
 
+## Under the Hood
+
+<div align="center">
+
+![Pipeline architecture](assets/pipeline.png)
+
+</div>
+
+A streaming, multi-pass pipeline grounded in a 70+ coach RAG corpus, with privacy and safety built into every layer:
+
+- **Audio & Privacy** — native Swift/C# capture → Deepgram live WebSocket (diarized stereo + mono) → `<user_data>` anti-injection sanitizer with a 500K cap and jailbreak guard.
+- **Coach Corpus RAG** — 70+ methodologies served via Gemini File Search. Vendor-managed retrieval, no self-hosted vector DB.
+- **Orchestrated Pipeline** — `analyze-meeting` (Gemini 2.5 Pro, SSE-streamed, DB-driven prompts for live A/B without redeploy) → `coach-chat` router (9 modes on Flash, ~8× cheaper) → weekly `generate-digest` for thematic synthesis and growth trajectory.
+- **Compounding Memory** — every run extracts insights, memory, strategies, and personality (via LinkedIn enrichment) into Postgres sync tables that feed the next analysis.
+- **Interview Multipass** — Pass 1 on Flash → Passes 2-3 on Pro + RAG → synthesis. ~70s wall time, fits within the 150s edge function cap.
+- **Safety Net** — `limitsMonitor` for tokens/cost/latency, Arize ML monitoring, an isolated Prompt Tester sandbox, and a `detectPromptLeak` post-check to catch jailbreaks.
+
 ## Who Is It For?
 
 - **Job seekers** preparing for high-stakes interviews — PM, engineering, sales, design, leadership roles
