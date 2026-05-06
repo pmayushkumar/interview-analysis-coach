@@ -52,7 +52,7 @@ _Coming soon._
 
 ## Get Started
 
-Visit [proleap.ai](https://proleap.ai) to join the alpha.
+Visit [proleap.ai](https://proleap.ai/interview) to join the alpha.
 
 ## Contact
 
